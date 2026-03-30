@@ -93,7 +93,7 @@ def main(argv):
     args = parser.parse_args(argv)
 
     entries = []
-    with open(args.infile) as infile:
+    with open(args.infile, encoding='utf-8', errors='replace') as infile:
         for line in infile:
             if line.startswith(VCard.BEGIN):
                 entries.append(VCard())
