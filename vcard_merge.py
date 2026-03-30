@@ -93,7 +93,7 @@ def main(argv):
     args = parser.parse_args(argv)
 
     entries = []
-    with open(args.infile, encoding='utf-8', errors='replace') as infile:
+    with open(args.outfile, 'w', encoding='utf-8', errors='replace') as outfile:
         for line in infile:
             if line.startswith(VCard.BEGIN):
                 entries.append(VCard())
@@ -126,7 +126,7 @@ def main(argv):
         out_name = args.outfile
     else:
         out_name = args.infile+'.sorted'
-    with open(out_name, 'w', newline='\r\n') as outfile:
+    with open(out_name, 'w', encoding='utf-8', errors='replace', newline='\r\n') as outfile:
         for e in entries:
             e.write(outfile)
 
